@@ -1,0 +1,29 @@
+{
+  "name": "whats-on-tv",
+  "version": "0.0.1",
+  "description": "Irish TV Guide with a CLI",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/okeefj22/whats-on-tv.git"
+  },
+  "keywords": [
+    "tv",
+    "guide",
+    "entertainment.ie",
+    "rte"
+  ],
+  "author": "Jacob O'Keeffe",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/okeefj22/whats-on-tv/issues"
+  },
+  "homepage": "https://github.com/okeefj22/whats-on-tv#readme",
+  "dependencies": {
+    "moment": "^2.17.1",
+    "osmosis": "^1.1.2"
+  }
+}
