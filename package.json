@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "description": "Irish TV Guide with a CLI",
   "main": "index.js",
+  "bin": {
+    "whatson": "index.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
