@@ -9,8 +9,8 @@ const moment = require("moment");
 const channelList = require("./channel-list");
 
 // Command line options
-var channelName;
-var time;
+let channelName;
+let time;
 
 // Parse command line options (no validation, sorry!)
 process.argv.forEach((arg, i, argv) => {
@@ -34,8 +34,8 @@ if (time != "now") return;
 const url = `http://entertainment.ie/TV_Listing/${moment().format("DD-Mo-YYYY")}/${channelNum}/${channelName}.htm`;
 
 // Arrays for start times and programmes
-const startTimes = []
-const programmes = []
+const startTimes = [];
+const programmes = [];
 
 // Fetch latest Entertainment.ie listings
 osmosis
@@ -46,7 +46,7 @@ osmosis
   })
   .find("ul > li > p > a > strong")
   .then((result) => {
-    programmes.push(result.innerHTML.replace(/<(?:.|\n)*?>/gm, ''));
+    programmes.push(result.innerHTML.replace(/<(?:.|\n)*?>/gm, ""));
   })
   .done(() => {
     console.log(`${startTimes[0]}\t${programmes[0]}`);
