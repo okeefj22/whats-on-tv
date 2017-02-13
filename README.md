@@ -5,11 +5,11 @@ The program scrapes the listings from [entertainment.ie](http://entertainment.ie
 
 ## Installation
 ```
-cd {path-to-repo}/whats-on-tv
+cd {path-to-repo}
 npm link
 ```
 
 ## Usage
 ```
-whatson --channel 'RTE-2' --time 'now'
+whatson --channel RTE-2 --time now
 ```
