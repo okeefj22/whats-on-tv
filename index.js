@@ -27,9 +27,6 @@ process.argv.forEach((arg, i, argv) => {
 // Get the corresponding channel number from the channelList object
 const channelNum = channelList[channelName];
 
-// Only works for current listing at the moment
-if (time != "now") return;
-
 // Build URL
 const url = `http://entertainment.ie/TV_Listing/${moment().format("DD-Mo-YYYY")}/${channelNum}/${channelName}.htm`;
 
@@ -49,5 +46,15 @@ osmosis
     programmes.push(result.innerHTML.replace(/<(?:.|\n)*?>/gm, ""));
   })
   .done(() => {
-    console.log(`${startTimes[0]}\t${programmes[0]}`);
+    if (time === "now") {
+        console.log(`${startTimes[0]}\t${programmes[0]}`);
+    }
+    else if (time === "next") {
+        console.log(`${startTimes[1]}\t${programmes[1]}`);
+    }
+    else {
+        for (let i = 0; i < startTimes.length; i++) {
+            console.log(`${startTimes[i]}\t${programmes[i]}`);
+        }
+    }
   });
