@@ -10,7 +10,6 @@ npm link
 ```
 
 ## Usage
-### Get listings for a certain channel
 You must first find the exact channel name in [channel-list.json](https://github.com/okeefj22/whats-on-tv/blob/master/channel-list.json).
 
 ```
