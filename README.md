@@ -14,11 +14,16 @@ npm link
 You must first find the exact channel name in [channel-list.json](https://github.com/okeefj22/whats-on-tv/blob/master/channel-list.json).
 
 ```
-whatson --channel RTE-2
+whatson RTE-2
 ```
 
 #### Get listings for now or next
 ```
-whatson --channel RTE-2 --time now
-whatson --channel RTE-2 --time next
+whatson RTE-2 now
+whatson RTE-2 next
+```
+
+#### Get listings for tomorrow
+```
+whatson RTE-2 tomorrow
 ```

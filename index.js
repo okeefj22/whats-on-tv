@@ -10,25 +10,23 @@ const channelList = require("./channel-list");
 
 // Command line options
 let channelName;
-let time;
+if (process.argv[2]) channelName = process.argv[2];
+else exit(); 
 
-// Parse command line options (no validation, sorry!)
-process.argv.forEach((arg, i, argv) => {
-  switch (arg) {
-    case "--channel":
-      channelName = argv[i + 1];
-      break;
-    case "--time":
-      time = argv[i + 1];
-      break;
-  }
-});
+let time;
+if (process.argv[3]) time = process.argv[3];
 
 // Get the corresponding channel number from the channelList object
 const channelNum = channelList[channelName];
 
 // Build URL
-const url = `http://entertainment.ie/TV_Listing/${moment().format("DD-Mo-YYYY")}/${channelNum}/${channelName}.htm`;
+let url;
+if (time === "tomorrow") {
+    url = `http://entertainment.ie/TV_Listing/${moment().add(1, "days").format("DD-MMMM-YYYY")}/${channelNum}/${channelName}.htm`;
+}
+else {
+    url = `http://entertainment.ie/TV_Listing/${channelNum}/${channelName}.htm`;
+}
 
 // Arrays for start times and programmes
 const startTimes = [];
