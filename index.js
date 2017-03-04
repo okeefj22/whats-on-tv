@@ -26,7 +26,7 @@ if (time === "tomorrow") {
     url = `http://entertainment.ie/TV_Listing/${moment().add(1, "days").format("DD-MMMM-YYYY")}/${channelNum}/${channelName}.htm`;
 }
 else {
-    url = `http://entertainment.ie/TV_Listing/${channelNum}/${channelName}.htm`;
+    url = `http://entertainment.ie/TV_Listing/${moment().format("DD-MMMM-YYYY")}/${channelNum}/${channelName}.htm`;
 }
 
 // Arrays for start times and programmes
