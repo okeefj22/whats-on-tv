@@ -4,6 +4,7 @@
 // Required packages
 const osmosis = require("osmosis");
 const moment = require("moment");
+const chalk = require("chalk");
 
 // Read in the channel list
 const channelList = require("./channel-list");
@@ -11,7 +12,7 @@ const channelList = require("./channel-list");
 // Command line options
 let channelName;
 if (process.argv[2]) channelName = process.argv[2];
-else exit(); 
+else process.exit(1); 
 
 let time;
 if (process.argv[3]) time = process.argv[3];
@@ -45,14 +46,18 @@ osmosis
   })
   .done(() => {
     if (time === "now") {
-        console.log(`${startTimes[0]}\t${programmes[0]}`);
+        printListing(startTimes[0], programmes[0]);
     }
     else if (time === "next") {
-        console.log(`${startTimes[1]}\t${programmes[1]}`);
+        printListing(startTimes[1], programmes[1]);
     }
     else {
         for (let i = 0; i < startTimes.length; i++) {
-            console.log(`${startTimes[i]}\t${programmes[i]}`);
+            printListing(startTimes[i], programmes[i]);
         }
     }
   });
+
+function printListing(start, programme) {
+    console.log(`${chalk.yellow.bold(start)}\t${chalk.white.bold(programme)}`);
+}
