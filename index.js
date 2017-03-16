@@ -5,9 +5,22 @@
 const osmosis = require("osmosis");
 const moment = require("moment");
 const chalk = require("chalk");
+const omelette = require("omelette");
 
 // Read in the channel list
 const channelList = require("./channel-list");
+const keys = Object.keys(channelList);
+
+// auto-complete using omelette
+const complete = omelette("whatson <channel> <time>");
+complete.on("channel", () => complete.reply(keys));
+complete.on("time", () => complete.reply(["now", "next", "tomorrow"]));
+complete.init();
+
+// setup autocomplete for the user
+if (~process.argv.indexOf("--setup")) {
+    complete.setupShellInitFile();
+}
 
 // Command line options
 let channelName;
