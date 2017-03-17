@@ -1,6 +1,6 @@
 {
   "name": "whats-on-tv",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Irish TV Guide with a CLI",
   "main": "index.js",
   "bin": {

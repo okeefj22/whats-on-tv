@@ -5,24 +5,42 @@ The program scrapes the listings from [entertainment.ie](http://entertainment.ie
 
 ## Installation
 ```
-cd {path-to-repo}
-npm link
+npm i -g whats-on-tv
 ```
 
-## Usage
-You must first find the exact channel name in [channel-list.json](https://github.com/okeefj22/whats-on-tv/blob/master/channel-list.json).
+## Setup tab autocompletion
+To setup tab autocompletion you simply run the following command.
 
+```
+whatson --setup
+```
+
+If you using Bash, it will create a file at `~/.whatson/completion.sh` and append a loader code to `~/.bash_profile`.
+
+If you use Zsh of Fish, it just appends a loader code to `~/.zshrc` or `~/.config/fish/config.fish` respectively.
+
+
+## Usage
+If you have tab autocompletion setup, you can display a list of channels using the following command.
+
+```
+whatson <TAB>
+```
+
+Otherwise, you can check the [channel-list.json](https://github.com/okeefj22/whats-on-tv/blob/master/channel-list.json) file.
+
+### Get today's full listings
 ```
 whatson RTE-2
 ```
 
-#### Get listings for now or next
+### Get listings for now or next
 ```
 whatson RTE-2 now
 whatson RTE-2 next
 ```
 
-#### Get listings for tomorrow
+### Get listings for tomorrow
 ```
 whatson RTE-2 tomorrow
 ```
